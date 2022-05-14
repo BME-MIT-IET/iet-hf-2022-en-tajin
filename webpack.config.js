@@ -1,13 +1,16 @@
 const path = require('path');
 
+let entry = __dirname + '/url.js';
+let outputPath = path.resolve(__dirname, "dist");
+
 module.exports = {
-    entry: './url.js',
+    entry: entry,
     output: {
         filename: "domurl-lib.js",
-        path: path.resolve(__dirname,"dist"),
+        path: outputPath,
         library: {
-            name: 'domUrl',
+            name: 'webpackNumbers',
             type: 'umd',
-        },
+          },
     },
 };
