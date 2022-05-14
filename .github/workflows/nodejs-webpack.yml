@@ -24,10 +24,11 @@ jobs:
         
     - name: Install dependencies
       run: |
-        if [-e package-lock.json]; then 
+        if [ -e package-lock.json ]; then 
         npm ci
         else 
         npm install 
+        fi
     - name: Build
       run: npx webpack
     - name: Unit test
