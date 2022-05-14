@@ -1,0 +1,11 @@
+/*!
+ * Lightweight URL manipulation with JavaScript
+ * This library is independent of any other libraries and has pretty simple
+ * interface and lightweight code-base.
+ * Some ideas of query string parsing had been taken from Jan Wolter
+ * @see http://unixpapa.com/js/querystring.html
+ *
+ * @license MIT
+ * @author Mykhailo Stadnyk <mikhus@gmail.com> and contributors
+ * @see https://github.com/Mikhus/domurl/graphs/contributors
+ */
