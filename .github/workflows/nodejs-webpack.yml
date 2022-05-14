@@ -2,9 +2,9 @@ name: NodeJS with Webpack
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
@@ -13,23 +13,25 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x]
-    
-    steps:
-    - uses: actions/checkout@v3
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        
-    - name: Install dependencies
-      run: |
-        if [ -e package-lock.json ]; then 
-        npm ci
-        else 
-        npm install 
-        fi
-    - name: Build
-      run: npx webpack
-    - name: Unit test
-      run: npm run test 
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: |
+          if [ -e package-lock.json ]; then 
+          npm ci
+          else 
+          npm install 
+          fi
+
+      - name: Unit test
+        run: npm run test
+
+      - name: Build
+        run: npm run build
