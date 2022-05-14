@@ -16,7 +16,7 @@
                 <h3>Enter here the URL you'd like to use for testing:</h3>
                 <label  class="col-sm-2 col-form-label">URL</label>
                 <div class="col-sm-10">
-                    <input  class="form-control" id="url" required>
+                    <input  class="form-control" id="url" >
                 </div>
             </div>
            
@@ -72,7 +72,7 @@
         <div class="row mb-3">
             <label  class="col-sm-2 col-form-label">Output</label>
             <div class="col-sm-10">
-                <input class="form-control" id="urlCleared" required>
+                <input class="form-control" id="urlCleared" readonly>
             </div>
         </div>
         <div class="row">
@@ -91,7 +91,7 @@
         <div class="row mb-3">
             <label  class="col-sm-2 col-form-label">Output</label>
             <div class="col-sm-10">
-                <input class="form-control" id="queryLength"  required>
+                <input class="form-control" id="queryLength" readonly >
             </div>
         </div>
         <div class="row">
@@ -104,18 +104,18 @@
 <div class="m-4">
     <form >
         <div class="row mb-3">
-            <h3>URL.encode</h3>
+            <h3>URL.isEmptyQuery()</h3>
             
         </div>
         <div class="row mb-3">
-            <label  class="col-sm-2 col-form-label">Output</label>
+            <label  class="col-sm-2 col-form-label" >Output</label>
             <div class="col-sm-10">
-                <input class="form-control"  required>
+                <input class="form-control"  id="isEmptyUrl"readonly>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-10 offset-sm-2">
-                <button type="button" class="btn btn-primary">Test</button>
+                <button type="button" onclick="urlisEmpty()" class="btn btn-primary">Test</button>
             </div>
         </div>
     </form>
@@ -123,18 +123,18 @@
 <div class="m-4">
     <form >
         <div class="row mb-3">
-            <h3>URL.encode</h3>
+            <h3>URL.toString()</h3>
             
         </div>
         <div class="row mb-3">
             <label  class="col-sm-2 col-form-label">Output</label>
             <div class="col-sm-10">
-                <input class="form-control"  required>
+                <input class="form-control" id="urltostring" readonly  >
             </div>
         </div>
         <div class="row">
             <div class="col-sm-10 offset-sm-2">
-                <button type="button" class="btn btn-primary">Test</button>
+                <button type="button" onclick="urlToString()"class="btn btn-primary">Test</button>
             </div>
         </div>
     </form>
@@ -142,18 +142,18 @@
 <div class="m-4">
     <form >
         <div class="row mb-3">
-            <h3>URL.encode</h3>
+            <h3>URL.Parse()</h3>
             
         </div>
         <div class="row mb-3">
             <label  class="col-sm-2 col-form-label">Output</label>
             <div class="col-sm-10">
-                <input class="form-control"  required>
+                <input class="form-control" id="urlparsed" readonly>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-10 offset-sm-2">
-                <button type="button" class="btn btn-primary">Test</button>
+                <button type="button" onclick ="urlParse()"class="btn btn-primary">Test</button>
             </div>
         </div>
     </form>
