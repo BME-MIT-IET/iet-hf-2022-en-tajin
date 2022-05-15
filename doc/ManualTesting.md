@@ -6,7 +6,7 @@ The main purpose of this manual testing is to enable the user to test the librar
 
 A User Interface is available as you can see in the screenshot below 
 
-![](Screenshots/Testing_UI.PNG)
+![](Screenshots/Testing_UI.png)
 
 ## HOW TO USE:
 
