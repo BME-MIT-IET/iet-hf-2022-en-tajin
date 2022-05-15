@@ -23,3 +23,7 @@ The workfow is triggered for each pull request to the master branch.
 - Push Docker image to ghcr 
 
 ![](Screenshots/ci-3.png)
+
+- ghcr package: 
+  
+  ![](Screenshots/ci-4.png)
