@@ -9,7 +9,7 @@ module.exports = {
         filename: "domurl-lib.js",
         path: outputPath,
         library: {
-            name: 'webpackNumbers',
+            name: 'domUrl',
             type: 'umd',
           },
     },
