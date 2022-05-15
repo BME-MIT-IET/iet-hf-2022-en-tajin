@@ -181,5 +181,7 @@ describe('Url.isEmptyQuery()', function () {
         assert.equal(url1.isEmptyQuery(),false);
         var url2 = new Url('http://localhost/');
         assert.equal(url2.isEmptyQuery(),true);
+        var url2 = new Url('https://github.com/BME-MIT-IET/iet-hf-2022-en-tajin');
+        assert.equal(url2.isEmptyQuery(),true);
     });
 });
