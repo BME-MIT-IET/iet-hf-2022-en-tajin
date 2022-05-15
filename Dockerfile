@@ -8,6 +8,6 @@ RUN npm install
 
 COPY . /app
 
-CMD ["npm","test"]
+CMD npm test && npm run bdd-test
 
 EXPOSE 8081
