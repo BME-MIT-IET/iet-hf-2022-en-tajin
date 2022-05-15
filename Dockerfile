@@ -8,6 +8,6 @@ RUN npm install
 
 COPY . /app
 
-CMD ["npm","test","build"]
+CMD ["npm","test"]
 
 EXPOSE 8081
