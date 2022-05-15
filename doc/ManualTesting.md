@@ -14,7 +14,7 @@ Running the tests is pretty simple. The first step is the user has to enter the 
 
 Then, simply choose the function you want to test and click the button "Test", and you can see the result in the output field.
 
-
+![](Screenshots/Test-Demo.png)
 
 
 
