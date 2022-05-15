@@ -175,13 +175,3 @@ describe('Path url encoding', function () {
         assert.equal(u.toString(), 'http://localhost/path%2bwith%2bplus');
     });
 });
-describe('Url.isEmptyQuery()', function () {
-    it('should return true if query string contains no parameters, false otherwise', function () {
-        var url1 = new Url('http://localhost/?a=%3F');
-        assert.equal(url1.isEmptyQuery(),false);
-        var url2 = new Url('http://localhost/');
-        assert.equal(url2.isEmptyQuery(),true);
-        var url2 = new Url('https://github.com/BME-MIT-IET/iet-hf-2022-en-tajin');
-        assert.equal(url2.isEmptyQuery(),true);
-    });
-});
