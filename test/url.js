@@ -44,6 +44,7 @@ describe('Url()', function () {
         const u = new Url();
         assert.equal(u instanceof Url, true);
     });
+
     it('should match current dir when construct with no argument', function () {
         const u = new Url();
         let dir = u.path.replace(/\//g, p.sep);
@@ -141,6 +142,14 @@ describe('Url.query.toString()', function () {
         u.query.a[1] = null;
         assert.equal(u.toString(), originalStr);
     });
+
+    it('should give empty query string for empty array', function () {
+        const originalStr = 'http://localhost/?a&a&a'
+        const u = new Url(originalStr);
+
+        u.query.a = [];
+        assert.equal(u.toString(), 'http://localhost/?a=')
+    })
 });
 
 describe('Url props interface', function () {
@@ -156,6 +165,21 @@ describe('Url props interface', function () {
         assert.equal(u.query, 'foo=bar');
         assert.equal(u.query.foo, 'bar');
         assert.equal(u.hash, 'anchor');
+        assert.equal(str, u.toString());
+    });
+
+    it('should parse all URL parts correctly', function () {
+        const str = 'wss://example.com/some/path.html?foo=bar';
+        const u = new Url(str);
+        assert.equal(u.protocol, 'wss');
+        assert.equal(u.user, '');
+        assert.equal(u.pass, '');
+        assert.equal(u.host, 'example.com');
+        assert.equal(u.port, '');
+        assert.equal(u.path, '/some/path.html');
+        assert.equal(u.query, 'foo=bar');
+        assert.equal(u.query.foo, 'bar');
+        assert.equal(u.hash, '');
         assert.equal(str, u.toString());
     });
 });
@@ -174,14 +198,38 @@ describe('Path url encoding', function () {
         const u = new Url('http://localhost/path+with+plus');
         assert.equal(u.toString(), 'http://localhost/path%2bwith%2bplus');
     });
+    it('should correctly encode random characters', function () {
+        const u = new Url('http://localhost/path-with-áéü');
+        assert.equal(u.toString(), 'http://localhost/path-with-%C3%A1%C3%A9%C3%BC');
+    })
+    it('should correctly encode random characters 2', function () {
+        const u = new Url('http://localhost/path-with-႓');
+        assert.equal(u.toString(), 'http://localhost/path-with-%E1%82%93');
+    })
 });
+
+
+describe('Path url decoding', function () {
+    it('should not decode non-existing 2-hex-long character codes', function () {
+        const u = new Url('http://localhost/path-with-%C1%80');
+        assert.equal(Url.prototype.decode(u.toString()), 'http://localhost/path-with-%C1%80')
+    });
+    it('should not decode non-existing 3-hex-long character codes', function () {
+        const u = new Url('http://localhost/path-with-%E0%80%80');
+        assert.equal(Url.prototype.decode(u.toString()), 'http://localhost/path-with-%E0%80%80')
+    });
+})
+
+
+
 describe('Url.isEmptyQuery()', function () {
     it('should return true if query string contains no parameters, false otherwise', function () {
         var url1 = new Url('http://localhost/?a=%3F');
-        assert.equal(url1.isEmptyQuery(),false);
+        assert.equal(url1.isEmptyQuery(), false);
         var url2 = new Url('http://localhost/');
-        assert.equal(url2.isEmptyQuery(),true);
-        var url2 = new Url('https://github.com/BME-MIT-IET/iet-hf-2022-en-tajin');
-        assert.equal(url2.isEmptyQuery(),true);
+        assert.equal(url2.isEmptyQuery(), true);
     });
 });
+
+
+
