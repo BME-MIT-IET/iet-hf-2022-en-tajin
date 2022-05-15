@@ -23,7 +23,9 @@
     "test": "nyc mocha ./test/url.js",
     "dev": "webpack --mode=development",
     "build": "webpack --mode=production",
-    "minify": "./node_modules/uglify-js/bin/uglifyjs url.js --output url.min.js --compress --mangle"
+    "minify": "./node_modules/uglify-js/bin/uglifyjs url.js --output url.min.js --compress --mangle",
+    "bdd-test": "cucumber-js"
+
   },
   "maintainers": [
     {
@@ -41,6 +43,7 @@
   },
   "github": "https://github.com/Mikhus/domurl",
   "devDependencies": {
+    "@cucumber/cucumber": "^8.2.1",
     "jscs": "^1.12.0",
     "jshint": "^2.11.0",
     "mocha": "^10.0.0",
